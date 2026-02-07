@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+</head>
+<style>
+    img {
+        width: 170px;
+        height: 170px;
+        margin-left: 30px;
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+        gap: 45px;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 10%;
+        position: fixed;
+        width: 100%;
+        transition: all 0.4s ease;
+        z-index: 1000;
+        background-color: transparent;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+
+    }
+
+    header.scrolled {
+        background-color: white;
+        padding: 10px 10%;
+        box-shadow: 0 4px 10px rgb(0, 0, 0, 0.1);
+    }
+
+    nav {
+        display: flex;
+
+
+    }
+
+    button {
+        width: 100px;
+        height: 50px;
+        border-radius: 50px;
+        border: solid rgb(177, 246, 49);
+        color: rgb(149, 225, 9);
+
+        background-color: rgb(242, 242, 236);
+
+    }
+
+    body {
+        background-color: rgb(242, 242, 236);
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+
+    }
+
+    h1 {
+        font-size: 90px;
+    }
+
+    .heading {
+        margin-left: 150px;
+
+        line-height: 0.5;
+        /* Changed from 22px */
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-left: 150px;
+    }
+
+    .button_action {
+        margin-left: 100px;
+        gap: 30px;
+        padding: 15px 45px;
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    #talk {
+        width: 140px;
+        background-color: rgb(177, 246, 49);
+        border: solid rgb(177, 246, 49);
+        color: black;
+    }
+
+    #watch-video img {
+        width: 30px;
+        height: auto;
+        background-color: rgb(26, 66, 20);
+        border-radius: 50px;
+    }
+
+
+    #watch-video {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 180px;
+        border: 1px solid black;
+        color: black;
+    }
+
+    #login {
+        color: rgb(177, 246, 49);
+    }
+
+    h4 {
+        margin-left: 150px;
+    }
+
+    .features {
+        margin-left: 150px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px 15px;
+        max-width: 400px;
+
+
+    }
+
+    .features button {
+        border: 0.5px solid black;
+        color: black;
+        height: 30px;
+    }
+
+    .partners {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+        color: #70B2B8;
+        font-family: Calibri;
+        font-size: 17px;
+        margin-top: 40px;
+    }
+
+    .logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 50px;
+        /* Keeps logos close together */
+        margin-top: 20px;
+
+    }
+
+    .main_page {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 80px;
+        /* This creates a controlled gap between them */
+        padding: 50px 5%;
+        margin-top: 120px;
+    }
+
+    .main_img img {
+        width: 500px;
+        /* Changed from 900px */
+        height: auto;
+        /* Keeps proportions perfect */
+        margin-left: 0;
+        /* Removed 300px margin */
+        border-radius: 30px;
+
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Centers the "Partner Companies" text */
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    .logos img {
+        height: 35px;
+        /* Forces all logos to be the same height */
+        width: auto;
+        filter: grayscale(100%);
+        /* Matches the professional gray look */
+        opacity: 0.5;
+    }
+
+    #login {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    #login:hover {
+        background-color: rgb(177, 246, 49);
+        color: black;
+
+    }
+
+    #start {
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    #start:hover {
+        background-color: rgb(177, 246, 49);
+        color: black;
+    }
+
+    nav ul li {
+        padding: 8px 15px;
+        /* Adds space for the shadow to sit in */
+        border-radius: 8px;
+        /* Rounds the corners of the shadow area */
+        transition: all 0.3s ease;
+        /* Makes the shadow fade in smoothly */
+        cursor: pointer;
+    }
+
+    nav ul li:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+        /* Optional: slight highlight */
+        box-shadow: 0 4px 15px black;
+        /* horizontal, vertical, blur, color */
+        transform: translateY(-2px);
+        /* Optional: lifts the text slightly */
+    }
+
+
+    #talk:hover {
+        box-shadow: 0 4px 15px black;
+    }
+
+    #watch-video {
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+    }
+
+    #watch-video:hover {
+        background-color: rgb(50, 73, 1);
+        color: white;
+        box-shadow: 0 4px 12px rgb(61, 92, 7);
+    }
+
+
+    .features button {
+        transition: all 0.3s ease;
+        /* Put this in the base state */
+        cursor: pointer;
+    }
+
+    .features button:hover {
+        background-color: rgb(177, 246, 49);
+        /* Your brand green */
+        border-color: rgb(177, 246, 49);
+        color: black;
+        transform: scale(1.05);
+        /* Makes them pop slightly */
+        box-shadow: 0 4px 12px rgba(61, 92, 7);
+        /* The shadow syntax we discussed */
+    }
+
+
+
+    /* This only activates when 'dark-mode' is on the body */
+    body.dark-mode {
+        background-color: #1a1a1a;
+        /* Dark Gray */
+        color: rgba(255, 255, 255, 0.704);
+    }
+
+    /* Update other elements to look good in dark mode */
+    body.dark-mode .main_page,
+    body.dark-mode header.scrolled {
+        background-color: #1a1a1a;
+    }
+
+    body.dark-mode h1,
+    body.dark-mode p {
+        color: white;
+    }
+
+
+
+    /* This targets the feature buttons ONLY when Dark Mode is on */
+    body.dark-mode .features button {
+        background-color: transparent;
+        /* Removes the white background */
+        border: 1px solid white;
+        /* Changes the border to white */
+        color: white;
+        /* Makes the text readable */
+    }
+
+    /* Hover effect for these buttons in Dark Mode */
+    body.dark-mode .features button:hover {
+        background-color: rgb(177, 246, 49);
+        /* Your brand green */
+        color: black;
+        /* Text turns black for contrast */
+    }
+
+    .logo img {
+        width: 150px;
+        height: 150px;
+    }
+</style>
+
+<body>
+    <header>
+        <div class="logo">
+            <a>
+                <img src="https://static.vecteezy.com/system/resources/previews/023/986/601/original/spotify-logo-spotify-logo-transparent-spotify-icon-transparent-free-free-png.png"
+                    alt="logo.png">
+            </a>
+        </div>
+        <button id="dark-mode-toggle" style="width: 50px; height: 50px; cursor: pointer;">
+            🌙
+        </button>
+        <nav>
+            <ul>
+                <li>Features </li>
+                <li>How it works </li>
+                <li>Pricing</li>
+                <li>About</li>
+                <li>Testimonials</li>
+                <li>Contact</li>
+            </ul>
+
+        </nav>
+        <div>
+            <button id="login">LOG IN</button>
+            <button id="start">Get Started</button>
+        </div>
+    </header>
+    <div class="main_page">
+        <article>
+            <div class="heading">
+                <h1> Your Partner in</h1>
+                <h1> Smarter <span style="color:rgb(50, 236, 33)">Financial</span></h1>
+                <h1 style="color:rgb(50, 236, 33)">Decisions</h1>
+            </div>
+
+            <p>Take control of your money with tools designed to help you<br> save more, invest wisely, and plan ahead —
+                effortlessly.</p>
+
+            <div class="button_action">
+                <button id="talk">Talk to an Expert</button>
+
+                <button id="watch-video">
+                    <img src="https://images.icon-icons.com/2945/PNG/512/play_icon_184213.png">
+                    Watch Video
+                </button>
+            </div>
+            <h4>________________________________________</h4>
+            <div class="features">
+                <button style="width:150px">Market Insight</button>
+                <button>Invest</button>
+                <button>Grow</button>
+
+
+                <button>Plan</button>
+                <button style="width:120px">Budget</button>
+                <button style="width:130px;">Expert Tips</button>
+
+            </div>
+        </article>
+        <div class="main_img">
+            <img src="https://i.pinimg.com/1200x/58/53/8d/58538dee8c40808938ce9fbaf51184f1.jpg">
+        </div>
+    </div>
+    <br>
+    <br>
+    <footer>
+        <div class="partners">
+            <h3>Partner Companies</h3>
+        </div>
+        <div class="logos">
+            <img src="https://apparent-website.s3.amazonaws.com/uploads/2018/02/VISA_grey_logo.png"
+                style="width:120px; height:90px;">
+            <img src="https://rasky.com/wp-content/uploads/2020/07/Mastercard-logo-black-and-white.png"
+                style="width:120px; height:90px;">
+            <img src="https://iconlogovector.com/uploads/images/2025/07/lg-687197ba9ce02-Plaid.webp"
+                style="width:120px; height:100px;">
+            <img src="https://freepnglogo.com/images/all_img/forbes-logo-gray-75e9.png"
+                style="width:120px; height:100px;">
+            <img src="https://assets.website-files.com/64965826a7ae30b783bf9b41/649678a4f2887dcc06d672ab_deloitte_logo_grey-p-1600.png"
+                style="width:124px; height:90px;">
+        </div>
+
+    </footer>
+    <script>
+        window.onscroll = function () {
+            const myHeader = document.querySelector('header');
+            if (window.scrollY > 50) {
+                myHeader.classList.add('scrolled');
+
+            }
+            else {
+                myHeader.classList.remove('scrolled');
+            }
+        };
+        // 1. Select the button and the body
+        const toggleBtn = document.getElementById('dark-mode-toggle');
+        const bodyElement = document.body;
+
+        // 2. Add the click event
+        toggleBtn.addEventListener('click', function () {
+            // 3. Toggle the class 'dark-mode'
+            bodyElement.classList.toggle('dark-mode');
+
+            // 4. Bonus: Change the icon based on the mode
+            if (bodyElement.classList.contains('dark-mode')) {
+                toggleBtn.innerHTML = "☀️"; // Show sun in dark mode
+            } else {
+                toggleBtn.innerHTML = "🌙"; // Show moon in light mode
+            }
+        });
+    </script>
+</body>
+
+</html>
